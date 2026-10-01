@@ -5,26 +5,33 @@ import princessPortrait from '@assets/0_princess-profile_1790885005149.jpg';
 const projects = [
   {
     number: '01',
+    company: 'Moniepoint',
     category: 'CARDS · ACQUIRING · ISSUING',
-    title: 'Card Payments (Acquiring & Issuing)',
-    description:
-      'Leading card acquiring and payments operations, improving refund processing, auto-reversal success rates, and cardholder experience. Built a UK card issuing proposition from the ground up, navigating processors, schemes, vendors, and operations across compliance, technology, and customer experience.',
+    title: 'Card Payments',
+    description: [
+      'Improved refund processing for card-acquiring transactions and payment operations, maintained and improved auto-reversal success rates, and enhanced the end-to-end experience for cardholders and merchants.',
+      'Built a UK card-issuing proposition from the ground up, navigating processors, card schemes, vendors, and operations across compliance, technology, and customer experience.',
+    ],
     tags: ['Card Acquiring', 'Card Issuing', 'Operations', '0→1 Product'],
   },
   {
     number: '02',
+    company: 'Moniepoint',
     category: 'PAYMENTS · CROSS-BORDER',
-    title: 'Cross-Border Payments Platform',
-    description:
-      'Launched a new market with a cross-border payments product, scaling to meet emerging market demand. Led the go-to-market strategy, product positioning, and operations to capture a new geographic segment.',
+    title: 'Cross Border Payments',
+    description: [
+      'Launched a new market with a cross-border payments product, scaling to meet emerging market demand. Led foundational research and product strategy to capture a new geographic segment.',
+    ],
     tags: ['0→1 Product', 'Growth', 'Emerging Markets'],
   },
   {
     number: '03',
+    company: 'Brass',
     category: 'BUSINESS BANKING',
-    title: 'Business Banking & Payment Tools Suite',
-    description:
+    title: 'Business Banking',
+    description: [
       'Launched and expanded a mobile app (0→1) and feature suite including A2A payments, invoicing, payroll, cards, loans, and POS terminals. Managed the product roadmap for a multi-product platform, balancing SMB needs with business requirements.',
+    ],
     tags: ['Payments', 'SMB Focus', 'Product Suite'],
   },
 ];
@@ -69,7 +76,7 @@ function App() {
             <p className="eyebrow">PRODUCT MANAGER · FINTECH &amp; PAYMENTS</p>
             <h1 id="hero-title">Building products that make <em>money</em> move better.</h1>
             <p className="hero-text">
-              I&apos;m Princess, a Product Manager with 6+ years building products across fintech and payments. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments. I work best at the intersection of strategy, operations, and technology.
+              I&apos;m Princess, a Product Manager with 6+ years building products across fintech and payments. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments.
             </p>
             <div className="hero-actions">
               <a className="button dark" href="#work">See my work <ArrowDown size={15} aria-hidden="true" /></a>
@@ -90,10 +97,14 @@ function App() {
                 <div className="work-number" aria-label={`Project ${project.number}`}>{project.number}</div>
                 <div className="project-intro">
                   <div className="tag">{project.category}</div>
+                  <div className="company-label">
+                    <span>Company</span>
+                    <strong>{project.company}</strong>
+                  </div>
                   <h3>{project.title}</h3>
                 </div>
                 <div className="project-detail">
-                  <p>{project.description}</p>
+                  {project.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                   <div className="tags-group" aria-label="Project capabilities">
                     {project.tags.map((tag) => <span className="badge" key={tag}>{tag}</span>)}
                   </div>
