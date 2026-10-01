@@ -110,7 +110,7 @@
 .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); font-size: 13px; }
 .nav-links a, .footer a { transition: opacity .2s ease; }
 .nav-links a:hover, .footer a:hover, .text-link:hover { opacity: .55; }
-.nav-cta { font-size: 13px; border-bottom: 1px solid var(--ink); padding: 0 0 4px; }
+.nav-cta { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font-size: 13px; border-bottom: 1px solid var(--ink); padding: 0 0 4px; }
 .nav-cta span, .text-link span, .button span { margin-left: 7px; }
 .menu-toggle { display: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 42px; height: 42px; align-items: center; justify-content: center; border-radius: 50%; }
 .hero {
@@ -138,14 +138,14 @@
 .section { max-width: 1270px; margin: 0 auto; padding: 80px 7vw 100px; }
 .section-label { color: var(--leaf); margin-bottom: 30px; }
 .section h2, .community-section h2 { font-size: clamp(43px, 5.2vw, 72px); line-height: 1.06; margin: 0; }
-.work-grid { display: grid; gap: 17px; margin-top: 48px; }
+.work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 17px; margin-top: 48px; }
 .work-card {
-  display: grid; grid-template-columns: 72px minmax(0, 1fr);
-  gap: 25px; align-items: start; background: var(--surface); border: 1px solid var(--line);
-  border-radius: 10px; padding: 30px 34px; transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  display: grid; grid-template-columns: 1fr;
+  gap: 18px; align-content: start; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 26px 24px; transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 .work-card:hover { border-color: #76a7d4; transform: translateY(-3px); box-shadow: 0 12px 28px rgba(41, 84, 51, .08); }
-.work-number { font-family: var(--app-font-serif); color: var(--orange); font-size: 27px; line-height: 1; padding-top: 5px; }
+.work-number { font-family: var(--app-font-serif); color: var(--orange); font-size: 27px; line-height: 1; }
 .project-intro { min-width: 0; }
 .company-name { color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 13px; text-transform: uppercase; }
 .tag { color: var(--blue); background: #e5f1fa; padding: 6px 10px; border-radius: 3px; display: inline-block; font-size: 9px; letter-spacing: .8px; }
@@ -165,7 +165,7 @@
 .community-section h2 { max-width: 780px; margin-bottom: 27px; }
 .community-copy { max-width: 740px; }
 .community-section p, .content-section p { color: var(--leaf); font-size: 15px; line-height: 1.8; margin: 0 0 17px; }
-.community-link, .content-link { display: inline-block; font-size: 13px; font-weight: 700; padding-bottom: 4px; border-bottom: 2px solid #81c784; transition: color .2s ease, border-color .2s ease; }
+.community-link, .content-link { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font-size: 13px; font-weight: 700; padding-bottom: 4px; border-bottom: 2px solid #81c784; transition: color .2s ease, border-color .2s ease; }
 .community-link { color: var(--blue); margin-top: 10px; }
 .community-link:hover, .content-link:hover { color: var(--orange); border-color: var(--orange); }
 .content-section { max-width: 1270px; margin: 0 auto 110px; padding: 0 7vw; }
@@ -181,7 +181,8 @@
   .hero { grid-template-columns: 1fr .78fr; padding: 58px 6vw 80px; gap: 40px; min-height: 590px; }
   .hero h1 { font-size: clamp(54px, 7vw, 76px); }
   .hero-image img { height: 390px; }
-  .work-card { grid-template-columns: 48px minmax(0, 1fr); gap: 18px; padding: 25px; }
+  .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-card { padding: 25px; }
 }
 @media (max-width: 680px) {
   html { scroll-padding-top: 72px; }
@@ -199,10 +200,8 @@
   .section { padding: 62px 6vw 74px; }
   .section-label { margin-bottom: 23px; }
   .section h2, .community-section h2 { font-size: clamp(42px, 10vw, 60px); letter-spacing: -1.7px; }
-  .work-grid { gap: 13px; margin-top: 32px; }
-  .work-card { grid-template-columns: 44px 1fr; gap: 10px 15px; padding: 22px 19px; }
-  .work-number { grid-row: auto; }
-  .project-intro { grid-column: 2; }
+  .work-grid { grid-template-columns: 1fr; gap: 13px; margin-top: 32px; }
+  .work-card { gap: 16px; padding: 22px 19px; }
   .work-card h3 { font-size: 22px; margin-top: 12px; }
   .project-detail p { font-size: 13px; }
   .community-section { margin: 0 5vw 78px; padding: 34px 25px; }

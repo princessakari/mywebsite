@@ -49,10 +49,10 @@ function App() {
           PA<span>.</span>
         </a>
         <nav id="primary-navigation" className={`nav-links${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
-          <a href="#work" onClick={closeMenu}>Work</a>
+          <a href="#work" onClick={closeMenu}>My Work</a>
+          <a href="https://www.linkedin.com/in/princessakari/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="#community" onClick={closeMenu}>Community</a>
           <a href="#content" onClick={closeMenu}>Content</a>
-          <a href="https://www.linkedin.com/in/princessakari/" target="_blank" rel="noreferrer">LinkedIn</a>
         </nav>
         <a className="nav-cta" href="mailto:princessestherakari@gmail.com">
           Let&apos;s talk <ArrowUpRight aria-hidden="true" size={14} />
