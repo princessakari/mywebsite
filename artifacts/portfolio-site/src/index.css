@@ -186,6 +186,7 @@
 }
 @media (max-width: 680px) {
   html { scroll-padding-top: 72px; }
+  .hero-image { display: none; }
   .site-nav { height: 66px; padding: 0 6vw; }
   .nav-cta { margin-left: auto; margin-right: 14px; }
   .menu-toggle { display: inline-flex; }
