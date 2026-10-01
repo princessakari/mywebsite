@@ -96,17 +96,14 @@ function App() {
               <article className="work-card" key={project.number} data-testid={`card-project-${project.number}`}>
                 <div className="work-number" aria-label={`Project ${project.number}`}>{project.number}</div>
                 <div className="project-intro">
+                  <div className="company-name">{project.company}</div>
                   <div className="tag">{project.category}</div>
-                  <div className="company-label">
-                    <span>Company</span>
-                    <strong>{project.company}</strong>
-                  </div>
                   <h3>{project.title}</h3>
-                </div>
-                <div className="project-detail">
-                  {project.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                  <div className="tags-group" aria-label="Project capabilities">
-                    {project.tags.map((tag) => <span className="badge" key={tag}>{tag}</span>)}
+                  <div className="project-detail">
+                    {project.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    <div className="tags-group" aria-label="Project capabilities">
+                      {project.tags.map((tag) => <span className="badge" key={tag}>{tag}</span>)}
+                    </div>
                   </div>
                 </div>
               </article>
