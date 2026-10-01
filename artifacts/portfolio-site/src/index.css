@@ -157,9 +157,9 @@
 .community-section {
   max-width: 1390px; margin: 0 5vw 115px; padding: clamp(34px, 6vw, 78px);
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-  position: relative; overflow: hidden; transition: border-color .25s ease, box-shadow .25s ease;
+  position: relative; overflow: hidden; transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
-.community-section:hover { border-color: var(--blue); box-shadow: 0 0 0 2px var(--blue), 0 12px 28px rgba(41, 84, 51, .08); }
+.community-section:hover { border-color: #76a7d4; transform: translateY(-3px); box-shadow: 0 12px 28px rgba(41, 84, 51, .08); }
 .community-section::after { content: 'PIP'; position: absolute; right: -13px; bottom: -110px; color: #f0f7ea; font-family: var(--app-font-serif); font-size: clamp(160px, 26vw, 350px); line-height: 1; letter-spacing: -20px; pointer-events: none; }
 .community-section > * { position: relative; z-index: 1; }
 .community-section h2 { max-width: 780px; margin-bottom: 27px; }

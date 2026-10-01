@@ -6,8 +6,8 @@ const projects = [
   {
     number: '01',
     company: 'Moniepoint',
-    category: 'CARDS · ACQUIRING · ISSUING',
-    title: 'Card Payments',
+    category: 'Card Payments',
+    title: 'Card Payments (Acquiring & Issuing)',
     description: [
       'Improved refund processing for card-acquiring transactions and payment operations, maintained and improved auto-reversal success rates, and enhanced the end-to-end experience for cardholders and merchants.',
       'Built a UK card-issuing proposition from the ground up, navigating processors, card schemes, vendors, and operations across compliance, technology, and customer experience.',
@@ -28,7 +28,7 @@ const projects = [
     number: '03',
     company: 'Brass',
     category: 'BUSINESS BANKING',
-    title: 'Business Banking',
+    title: 'Business banking & Payment tools',
     description: [
       'Launched and expanded a mobile app (0→1) and feature suite including A2A payments, invoicing, payroll, cards, loans, and POS terminals. Managed the product roadmap for a multi-product platform, balancing SMB needs with business requirements.',
     ],
