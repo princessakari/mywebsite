@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Portfolio Website"
+description = "A responsive personal portfolio website adapted from the user's existing HTML, with clear project presentation and contact paths."
+version = "1.0.0"
+id = "artifacts/portfolio-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24826
+
+[services.development]
+run = "pnpm --filter @workspace/portfolio-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/portfolio-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/portfolio-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24826"
+BASE_PATH = "/"
