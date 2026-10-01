@@ -149,8 +149,8 @@
 .project-intro { min-width: 0; }
 .company-name { color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: 1px; margin-bottom: 13px; text-transform: uppercase; }
 .tag { color: var(--blue); background: #e5f1fa; padding: 6px 10px; border-radius: 3px; display: inline-block; font-size: 9px; letter-spacing: .8px; }
-.work-card h3 { color: var(--blue); font-family: var(--app-font-serif); font-size: 23px; line-height: 1.2; font-weight: 600; margin: 13px 0 14px; }
-.project-detail p { color: var(--leaf); margin: 0; font-size: 14px; line-height: 1.8; }
+.work-card h3 { min-height: 2.4em; color: var(--blue); font-family: var(--app-font-serif); font-size: 23px; line-height: 1.2; font-weight: 600; margin: 13px 0 14px; }
+.project-detail p { color: var(--leaf); margin: 0; font-size: 13px; line-height: 1.8; }
 .project-detail p + p { margin-top: 13px; }
 .tags-group { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
 .badge { font-size: 10px; letter-spacing: .3px; font-weight: 600; padding: 5px 9px; border-radius: 3px; background: var(--paper); color: var(--ink); border: 1px solid #b6d7b7; }
