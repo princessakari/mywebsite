@@ -75,7 +75,7 @@ function App() {
             <p className="eyebrow">PRODUCT MANAGER · FINTECH &amp; PAYMENTS</p>
             <h1 id="hero-title">Building products that make <em>money</em> move better.</h1>
             <p className="hero-text">
-              I&apos;m Princess, a Product Manager with 6+ years building products across fintech and payments. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments.
+              I&apos;m Princess, a Product Manager with 10+ years of experience across Strategy, Operations, Project, and Product Management, including 6+ years focused on Product Management and leading cross-functional initiatives. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments.
             </p>
             <div className="hero-actions">
               <a className="button dark" href="#work">See my work <ArrowDown size={15} aria-hidden="true" /></a>
