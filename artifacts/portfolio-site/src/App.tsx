@@ -52,7 +52,7 @@ function App() {
           <a href="#work" onClick={closeMenu}>Work</a>
           <a href="#community" onClick={closeMenu}>Community</a>
           <a href="#content" onClick={closeMenu}>Content</a>
-          <a href="https://www.linkedin.com/in/princessakari" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/princessakari/" target="_blank" rel="noreferrer">LinkedIn</a>
         </nav>
         <a className="nav-cta" href="mailto:princessestherakari@gmail.com">
           Let&apos;s talk <ArrowUpRight aria-hidden="true" size={14} />
@@ -136,7 +136,7 @@ function App() {
       <footer className="footer">
         <span>© 2026 Princess Akari</span>
         <div>
-          <a href="https://www.linkedin.com/in/princessakari" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/princessakari/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="mailto:princessestherakari@gmail.com">Contact me</a>
         </div>
       </footer>
