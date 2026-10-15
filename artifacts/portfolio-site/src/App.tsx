@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { ArrowDown, ArrowUpRight, Menu, X } from 'lucide-react';
 import princessPortrait from '@assets/0_princess-profile_1790885005149.jpg';
 
@@ -37,6 +37,67 @@ const projects = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [memberCount, setMemberCount] = useState(0);
+
+  useLayoutEffect(() => {
+    const revealElements = document.querySelectorAll<HTMLElement>('.reveal-on-scroll');
+    const memberCountTarget = document.querySelector<HTMLElement>('[data-member-count]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+      setMemberCount(5000);
+      return;
+    }
+
+    document.documentElement.classList.add('motion-ready');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+
+    let animationFrame = 0;
+    let countObserver: IntersectionObserver | undefined;
+
+    if (memberCountTarget) {
+      countObserver = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+
+        countObserver?.disconnect();
+        const duration = 1200;
+        let startTime: number | undefined;
+
+        const animateCount = (timestamp: number) => {
+          startTime ??= timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          setMemberCount(Math.round(easedProgress * 5000));
+
+          if (progress < 1) {
+            animationFrame = window.requestAnimationFrame(animateCount);
+          }
+        };
+
+        animationFrame = window.requestAnimationFrame(animateCount);
+      }, { threshold: 0.5 });
+
+      countObserver.observe(memberCountTarget);
+    }
+
+    return () => {
+      revealObserver.disconnect();
+      countObserver?.disconnect();
+      window.cancelAnimationFrame(animationFrame);
+      document.documentElement.classList.remove('motion-ready');
+    };
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -88,11 +149,11 @@ function App() {
         </section>
 
         <section id="work" className="section work-section" aria-labelledby="work-title">
-          <div className="section-label">SELECTED WORK</div>
-          <h2 id="work-title">Some Products I&apos;ve <em>Built</em></h2>
+          <div className="section-label reveal-on-scroll">SELECTED WORK</div>
+          <h2 id="work-title" className="reveal-on-scroll">Some Products I&apos;ve <em>Built</em></h2>
           <div className="work-grid">
             {projects.map((project) => (
-              <article className="work-card" key={project.number} data-testid={`card-project-${project.number}`}>
+              <article className="work-card reveal-on-scroll" key={project.number} data-testid={`card-project-${project.number}`}>
                 <div className="work-number" aria-label={`Project ${project.number}`}>{project.number}</div>
                 <div className="project-intro">
                   <div className="company-name">{project.company}</div>
@@ -110,19 +171,19 @@ function App() {
           </div>
         </section>
 
-        <section id="community" className="community-section" aria-labelledby="community-title">
+        <section id="community" className="community-section reveal-on-scroll" aria-labelledby="community-title">
           <div className="section-label">COMMUNITY</div>
           <h2 id="community-title">Building <em>PeopleInProduct</em></h2>
           <div className="community-copy">
             <p>I&apos;m the founder and Community Lead of PeopleInProduct, a growing community helping people learn, connect, and build better careers across the UK and Africa.</p>
-            <p>We host events, mentorship programs, and learning initiatives for product managers and aspiring PMs. <strong>5,000+ members</strong> across multiple regions globally.</p>
+            <p>We host events, mentorship programs, and learning initiatives for product managers and aspiring PMs. <strong className="member-count" data-member-count><span aria-hidden="true">{memberCount.toLocaleString('en-GB')}+ members</span><span className="visually-hidden">5,000+ members</span></strong> across multiple regions globally.</p>
             <a href="https://www.peopleinproduct.co" target="_blank" rel="noreferrer" className="community-link">
               Visit PeopleInProduct <ArrowUpRight size={15} aria-hidden="true" />
             </a>
           </div>
         </section>
 
-        <section id="content" className="content-section" aria-labelledby="content-title">
+        <section id="content" className="content-section reveal-on-scroll" aria-labelledby="content-title">
           <div className="section-label">CONTENT</div>
           <h2 id="content-title" className="content-title">Thinking outside <em>product</em></h2>
           <p>Outside my day job, I share life learnings across productivity, personal growth, and travel. I create content exploring how to build better habits, live intentionally, and make the most of moving across borders and discovering new places.</p>
