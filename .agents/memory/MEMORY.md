@@ -1,0 +1,1 @@
+- [Compact portfolio sections](compact-portfolio-sections.md) — Press/media and public-speaking content should stay compact, line-by-line, with accessible scroll and hover motion.

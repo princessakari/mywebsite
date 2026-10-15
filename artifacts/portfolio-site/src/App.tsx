@@ -299,36 +299,64 @@ function App() {
         </section>
 
         <section id="press-media" className="section highlights-section press-section" aria-labelledby="press-title">
-          <div className="section-label reveal-on-scroll">PRESS &amp; MEDIA</div>
-          <h2 id="press-title" className="reveal-on-scroll">Press &amp; Media <em>Highlights</em></h2>
-          <p className="highlights-intro reveal-on-scroll">Features, recognitions, and spotlights</p>
-          <ul className="highlight-grid">
-            {pressMediaHighlights.map((item) => (
-              <li className="highlight-item reveal-on-scroll" key={item.href}>
-                <a className="highlight-card" href={item.href} target="_blank" rel="noreferrer">
+          <div className="highlights-heading reveal-on-scroll">
+            <div>
+              <div className="section-label">01 / PRESS &amp; MEDIA</div>
+              <h2 id="press-title">Press &amp; Media <em>Highlights</em></h2>
+              <p className="highlights-intro">Features, recognitions, and spotlights</p>
+            </div>
+            <span className="highlight-count" aria-label={`${pressMediaHighlights.length} press and media links`}>
+              {String(pressMediaHighlights.length).padStart(2, '0')} <span>ENTRIES</span>
+            </span>
+          </div>
+          <ol className="highlight-list" aria-label="Press and media highlights">
+            {pressMediaHighlights.map((item, index) => (
+              <li
+                className="highlight-row reveal-on-scroll"
+                key={item.href}
+                style={{ animationDelay: `${Math.min(index, 7) * 38}ms` }}
+              >
+                <a className="highlight-row-link" href={item.href} target="_blank" rel="noreferrer">
+                  <span className="highlight-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className="highlight-source">{item.source}</span>
                   <span className="highlight-title">{item.title}</span>
-                  <ArrowUpRight className="highlight-arrow" aria-hidden="true" size={16} />
+                  <span className="highlight-row-arrow" aria-hidden="true">
+                    <ArrowUpRight size={17} strokeWidth={1.7} />
+                  </span>
                 </a>
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
         <section id="public-speaking" className="section highlights-section speaking-section" aria-labelledby="speaking-title">
-          <div className="section-label reveal-on-scroll">PUBLIC SPEAKING</div>
-          <h2 id="speaking-title" className="reveal-on-scroll">Public <em>Speaking</em></h2>
-          <ul className="highlight-grid">
-            {publicSpeakingHighlights.map((item) => (
-              <li className="highlight-item reveal-on-scroll" key={item.href}>
-                <a className="highlight-card" href={item.href} target="_blank" rel="noreferrer">
+          <div className="highlights-heading reveal-on-scroll">
+            <div>
+              <div className="section-label">02 / PUBLIC SPEAKING</div>
+              <h2 id="speaking-title">Public <em>Speaking</em></h2>
+            </div>
+            <span className="highlight-count" aria-label={`${publicSpeakingHighlights.length} speaking links`}>
+              {String(publicSpeakingHighlights.length).padStart(2, '0')} <span>ENGAGEMENTS</span>
+            </span>
+          </div>
+          <ol className="highlight-list" aria-label="Public speaking highlights">
+            {publicSpeakingHighlights.map((item, index) => (
+              <li
+                className="highlight-row reveal-on-scroll"
+                key={item.href}
+                style={{ animationDelay: `${Math.min(index, 7) * 38}ms` }}
+              >
+                <a className="highlight-row-link" href={item.href} target="_blank" rel="noreferrer">
+                  <span className="highlight-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className="highlight-source">{item.source}</span>
                   <span className="highlight-title">{item.title}</span>
-                  <ArrowUpRight className="highlight-arrow" aria-hidden="true" size={16} />
+                  <span className="highlight-row-arrow" aria-hidden="true">
+                    <ArrowUpRight size={17} strokeWidth={1.7} />
+                  </span>
                 </a>
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
         <section id="content" className="content-section reveal-on-scroll" aria-labelledby="content-title">
