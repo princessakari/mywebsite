@@ -35,16 +35,22 @@ const projects = [
   },
 ];
 
-const pressMediaHighlights = [
+type HighlightItem = {
+  source: string;
+  title: string;
+  href?: string;
+};
+
+const pressMediaHighlights: HighlightItem[] = [
+  {
+    source: 'Brummell Magazine',
+    title: 'One of London’s most exciting rising stars 2026',
+    href: 'https://www.brummellmagazine.co.uk/discover/ones-to-watch-in-the-city-2026/',
+  },
   {
     source: 'Condia',
     title: 'Career Transition from Oil & Gas to Tech',
     href: 'https://thecondia.com/princess-akari-product-manager-moniepoint/',
-  },
-  {
-    source: 'TechPoint Africa',
-    title: 'The Silent Migration',
-    href: 'https://techpoint.africa/insight/when-talented-nigerians-leave/',
   },
   {
     source: 'Treford Africa No-Code Talent Radar',
@@ -101,9 +107,19 @@ const pressMediaHighlights = [
     title: 'Podcast Episode with Jason Knight',
     href: 'https://www.oneknightinproduct.com/princess-akari/',
   },
+  {
+    source: 'TechPoint Africa',
+    title: 'The Silent Migration',
+    href: 'https://techpoint.africa/insight/when-talented-nigerians-leave/',
+  },
 ];
 
-const publicSpeakingHighlights = [
+const publicSpeakingHighlights: HighlightItem[] = [
+  {
+    source: 'PMHelp · February 2026',
+    title: 'LinkedIn Optimization for Global Opportunities',
+    href: 'https://www.linkedin.com/posts/princessakari_i-believe-linkedin-is-a-valuable-career-asset-activity-7431663556468707328-tkk2?utm_source=share&utm_medium=member_desktop&rcm=ACoAABI9MuABVymAl5ic2Oz8idqWZXsQaKj6Ziw',
+  },
   {
     source: 'Wise & BlackInFinTech Community · Black History Month · October 2025',
     title: 'Vision to Venture',
@@ -148,6 +164,45 @@ const publicSpeakingHighlights = [
     source: 'Tech4Dev · February 2024',
     title: 'Women Techstars Open Day',
     href: 'https://www.linkedin.com/posts/tech4dev_womentechsters-womentechstersopenday-februaryedition-activity-7165745519351341056-p6lx?utm_source=share&utm_medium=member_desktop',
+  },
+  {
+    source: 'ConTech Africa · September 2023',
+    title: 'My Product Journey: ConTech Corner',
+    href: 'https://x.com/ConTechAfrica/status/1704130565061197892',
+  },
+  {
+    source: 'Product Beats Show · July 2023',
+    title: 'The Core of Product Thinking - Emotional Intelligence',
+    href: 'https://www.linkedin.com/posts/product-beats_productthinking-emotionalintelligence-userempathy-activity-7070035274860216320-0-On?utm_source=share&utm_medium=member_desktop',
+  },
+  {
+    source: 'ConTech Africa · June 2023',
+    title: 'From Idea to Success: Exploring the Product Manager’s Path',
+  },
+  {
+    source: 'Talemia · May 2023',
+    title: 'Building a Community Around Your Product',
+    href: 'https://x.com/talemiahq/status/1661351965144522752?s=46',
+  },
+  {
+    source: 'Treford · April 2023',
+    title: 'Building a Strong Product Community',
+    href: 'https://x.com/trefordafrica/status/1647978255411036160?s=46',
+  },
+  {
+    source: 'Ideation HQ · January 2023',
+    title: 'Fundamentals and Principles of Product Management',
+    href: 'https://x.com/hqideation/status/1617519402966200320',
+  },
+  {
+    source: 'EmpowerHer Community · September 2022',
+    title: 'Lessons from my Product Management Journey',
+    href: 'https://x.com/empowerhercom/status/1566751388452937728',
+  },
+  {
+    source: 'Brass · May 2022',
+    title: 'Basics of Product Management',
+    href: 'https://www.linkedin.com/posts/joinbrass_insidebrassconversations-activity-6934526221259059200-J3lD?utm_source=share&utm_medium=member_desktop',
   },
 ];
 
@@ -335,27 +390,40 @@ function App() {
               <div className="section-label">02 / PUBLIC SPEAKING</div>
               <h2 id="speaking-title">Public <em>Speaking</em></h2>
             </div>
-            <span className="highlight-count" aria-label={`${publicSpeakingHighlights.length} speaking links`}>
-              {String(publicSpeakingHighlights.length).padStart(2, '0')} <span>ENGAGEMENTS</span>
-            </span>
           </div>
           <ol className="highlight-list" aria-label="Public speaking highlights">
-            {publicSpeakingHighlights.map((item, index) => (
-              <li
-                className="highlight-row reveal-on-scroll"
-                key={item.href}
-                style={{ animationDelay: `${Math.min(index, 7) * 38}ms` }}
-              >
-                <a className="highlight-row-link" href={item.href} target="_blank" rel="noreferrer">
+            {publicSpeakingHighlights.map((item, index) => {
+              const rowContent = (
+                <>
                   <span className="highlight-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className="highlight-source">{item.source}</span>
                   <span className="highlight-title">{item.title}</span>
-                  <span className="highlight-row-arrow" aria-hidden="true">
-                    <ArrowUpRight size={17} strokeWidth={1.7} />
-                  </span>
-                </a>
-              </li>
-            ))}
+                  {item.href && (
+                    <span className="highlight-row-arrow" aria-hidden="true">
+                      <ArrowUpRight size={17} strokeWidth={1.7} />
+                    </span>
+                  )}
+                </>
+              );
+
+              return (
+                <li
+                  className="highlight-row reveal-on-scroll"
+                  key={item.href ?? item.title}
+                  style={{ animationDelay: `${Math.min(index, 7) * 38}ms` }}
+                >
+                  {item.href ? (
+                    <a className="highlight-row-link" href={item.href} target="_blank" rel="noreferrer">
+                      {rowContent}
+                    </a>
+                  ) : (
+                    <div className="highlight-row-link highlight-row-link-static">
+                      {rowContent}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ol>
         </section>
 

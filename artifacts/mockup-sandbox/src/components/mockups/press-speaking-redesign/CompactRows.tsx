@@ -54,7 +54,7 @@ export function CompactRows() {
           </div>
           <ol className="compact-list" aria-label="Press and media highlights">
             {pressMediaHighlights.map((item, index) => (
-              <li className="compact-row" key={item.href} style={{ '--row-index': index } as CSSProperties}>
+              <li className="compact-row" key={item.href ?? item.title} style={{ '--row-index': index } as CSSProperties}>
                 <a className="compact-link" href={item.href} target="_blank" rel="noreferrer">
                   <span className="compact-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className="compact-source">{item.source}</span>
@@ -72,19 +72,24 @@ export function CompactRows() {
               <p className="compact-label">02 / PUBLIC SPEAKING</p>
               <h2 id="compact-speaking-title">Ideas <em>out loud</em></h2>
             </div>
-            <span className="compact-count" aria-label={`${publicSpeakingHighlights.length} speaking links`}>
-              {String(publicSpeakingHighlights.length).padStart(2, '0')} <span>ENGAGEMENTS</span>
-            </span>
           </div>
           <ol className="compact-list" aria-label="Public speaking highlights">
             {publicSpeakingHighlights.map((item, index) => (
-              <li className="compact-row" key={item.href} style={{ '--row-index': index } as CSSProperties}>
-                <a className="compact-link" href={item.href} target="_blank" rel="noreferrer">
-                  <span className="compact-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="compact-source">{item.source}</span>
-                  <span className="compact-title">{item.title}</span>
-                  <span className="compact-arrow" aria-hidden="true"><ArrowUpRight size={17} strokeWidth={1.7} /></span>
-                </a>
+              <li className="compact-row" key={item.href ?? item.title} style={{ '--row-index': index } as CSSProperties}>
+                {item.href ? (
+                  <a className="compact-link" href={item.href} target="_blank" rel="noreferrer">
+                    <span className="compact-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="compact-source">{item.source}</span>
+                    <span className="compact-title">{item.title}</span>
+                    <span className="compact-arrow" aria-hidden="true"><ArrowUpRight size={17} strokeWidth={1.7} /></span>
+                  </a>
+                ) : (
+                  <div className="compact-link compact-link-static">
+                    <span className="compact-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="compact-source">{item.source}</span>
+                    <span className="compact-title">{item.title}</span>
+                  </div>
+                )}
               </li>
             ))}
           </ol>

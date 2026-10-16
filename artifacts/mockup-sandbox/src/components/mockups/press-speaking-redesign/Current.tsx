@@ -43,7 +43,7 @@ export function Current() {
         <p className="current-intro current-reveal">Features, recognitions, and spotlights</p>
         <ul className="current-grid">
           {pressMediaHighlights.map((item) => (
-            <li className="current-item current-reveal" key={item.href}>
+            <li className="current-item current-reveal" key={item.href ?? item.title}>
               <a className="current-card" href={item.href} target="_blank" rel="noreferrer">
                 <span className="current-source">{item.source}</span>
                 <span className="current-title">{item.title}</span>
@@ -61,12 +61,19 @@ export function Current() {
         </h2>
         <ul className="current-grid">
           {publicSpeakingHighlights.map((item) => (
-            <li className="current-item current-reveal" key={item.href}>
-              <a className="current-card" href={item.href} target="_blank" rel="noreferrer">
-                <span className="current-source">{item.source}</span>
-                <span className="current-title">{item.title}</span>
-                <ArrowUpRight className="current-arrow" aria-hidden="true" size={16} />
-              </a>
+            <li className="current-item current-reveal" key={item.href ?? item.title}>
+              {item.href ? (
+                <a className="current-card" href={item.href} target="_blank" rel="noreferrer">
+                  <span className="current-source">{item.source}</span>
+                  <span className="current-title">{item.title}</span>
+                  <ArrowUpRight className="current-arrow" aria-hidden="true" size={16} />
+                </a>
+              ) : (
+                <div className="current-card current-card-static">
+                  <span className="current-source">{item.source}</span>
+                  <span className="current-title">{item.title}</span>
+                </div>
+              )}
             </li>
           ))}
         </ul>

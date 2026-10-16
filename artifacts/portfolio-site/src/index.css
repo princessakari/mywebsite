@@ -222,6 +222,9 @@
 .highlight-row-link:hover .highlight-row-arrow, .highlight-row-link:focus-visible .highlight-row-arrow {
   color: var(--orange); transform: translate(2px, -2px);
 }
+.highlight-row-link-static { cursor: default; }
+.highlight-row-link-static:hover { transform: none; background-color: transparent; }
+.highlight-row-link-static:hover .highlight-title { color: var(--blue); }
 .footer { padding: 24px 5vw; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; color: var(--leaf); font-size: 10px; letter-spacing: .5px; }
 .footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; }
 .footer a:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }

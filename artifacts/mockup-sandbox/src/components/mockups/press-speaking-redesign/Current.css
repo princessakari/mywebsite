@@ -80,6 +80,16 @@
   box-shadow: 0 10px 24px rgb(41 84 51 / 8%);
 }
 
+.ps-current .current-card-static {
+  cursor: default;
+}
+
+.ps-current .current-card-static:hover {
+  transform: none;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
 .ps-current .current-source {
   color: var(--leaf);
   font-size: 9px;

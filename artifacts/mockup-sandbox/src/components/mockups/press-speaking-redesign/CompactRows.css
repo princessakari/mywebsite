@@ -154,6 +154,15 @@
   background-color: rgb(255 254 250 / 72%);
 }
 
+.ps-compact .compact-link-static {
+  cursor: default;
+}
+
+.ps-compact .compact-link-static:hover {
+  transform: none;
+  background-color: transparent;
+}
+
 .ps-compact .compact-index {
   color: #8aa58b;
   font-size: 9px;
@@ -182,6 +191,10 @@
 .ps-compact .compact-link:hover .compact-title,
 .ps-compact .compact-link:focus-visible .compact-title {
   color: var(--ink);
+}
+
+.ps-compact .compact-link-static:hover .compact-title {
+  color: var(--blue);
 }
 
 .ps-compact .compact-arrow {
