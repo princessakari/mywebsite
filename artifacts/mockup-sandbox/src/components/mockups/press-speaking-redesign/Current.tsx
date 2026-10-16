@@ -59,6 +59,7 @@ export function Current() {
         <h2 id="current-speaking-title" className="current-reveal">
           Public <em>Speaking</em>
         </h2>
+        <p className="current-intro current-reveal">Talks, panels, and product conversations</p>
         <ul className="current-grid">
           {publicSpeakingHighlights.map((item) => (
             <li className="current-item current-reveal" key={item.href ?? item.title}>

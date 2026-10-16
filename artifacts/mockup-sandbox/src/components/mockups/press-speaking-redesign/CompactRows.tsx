@@ -48,9 +48,6 @@ export function CompactRows() {
               <h1 id="compact-press-title">In the <em>press</em></h1>
               <p className="compact-intro">Features, recognitions, and spotlights</p>
             </div>
-            <span className="compact-count" aria-label={`${pressMediaHighlights.length} press and media links`}>
-              {String(pressMediaHighlights.length).padStart(2, '0')} <span>ENTRIES</span>
-            </span>
           </div>
           <ol className="compact-list" aria-label="Press and media highlights">
             {pressMediaHighlights.map((item, index) => (
@@ -71,6 +68,7 @@ export function CompactRows() {
             <div>
               <p className="compact-label">02 / PUBLIC SPEAKING</p>
               <h2 id="compact-speaking-title">Ideas <em>out loud</em></h2>
+              <p className="compact-intro">Talks, panels, and product conversations</p>
             </div>
           </div>
           <ol className="compact-list" aria-label="Public speaking highlights">

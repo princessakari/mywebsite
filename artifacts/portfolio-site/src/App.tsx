@@ -306,7 +306,8 @@ function App() {
             <p className="eyebrow">PRODUCT MANAGER · FINTECH &amp; PAYMENTS</p>
             <h1 id="hero-title">Building products that make <em>money</em> move better.</h1>
             <p className="hero-text">
-              I&apos;m Princess, a Product Manager with 10+ years of experience across Strategy, Operations, Project, and Product Management, including 6+ years focused on Product Management and leading cross-functional initiatives. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments.
+              I&apos;m Princess, a Product Manager with{' '}
+              <strong className="hero-highlight">10+ years of experience across Strategy, Operations, Project, and Product Management</strong>, including 6+ years focused on Product Management and leading cross-functional initiatives. I lead products from 0→1 launches, scale operations, and improve customer experience in regulated environments.
             </p>
             <div className="hero-actions">
               <a className="button dark" href="#work">See my work <ArrowDown size={15} aria-hidden="true" /></a>
@@ -360,9 +361,6 @@ function App() {
               <h2 id="press-title">Press &amp; Media <em>Highlights</em></h2>
               <p className="highlights-intro">Features, recognitions, and spotlights</p>
             </div>
-            <span className="highlight-count" aria-label={`${pressMediaHighlights.length} press and media links`}>
-              {String(pressMediaHighlights.length).padStart(2, '0')} <span>ENTRIES</span>
-            </span>
           </div>
           <ol className="highlight-list" aria-label="Press and media highlights">
             {pressMediaHighlights.map((item, index) => (
@@ -389,6 +387,7 @@ function App() {
             <div>
               <div className="section-label">02 / PUBLIC SPEAKING</div>
               <h2 id="speaking-title">Public <em>Speaking</em></h2>
+              <p className="highlights-intro">Talks, panels, and product conversations</p>
             </div>
           </div>
           <ol className="highlight-list" aria-label="Public speaking highlights">
