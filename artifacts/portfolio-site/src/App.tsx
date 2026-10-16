@@ -9,7 +9,7 @@ const projects = [
     category: 'CARD PAYMENTS',
     title: 'Card Payments (Acquiring & Issuing)',
     description: [
-      'Improved card-acquiring refunds and payment operations, strengthening auto-reversal performance. Built a UK card-issuing proposition from the ground up across processors, schemes, vendors, and operations.',
+      'Improved card-acquiring refunds and payment operations, strengthening auto-reversal performance. Also, built a UK card-issuing proposition from the ground up across processors, schemes, vendors, and operations.',
     ],
     tags: ['Card Acquiring', 'Card Issuing', 'Operations', '0→1 Product'],
   },
@@ -29,9 +29,9 @@ const projects = [
     category: 'BUSINESS BANKING',
     title: 'Business banking & Payment tools',
     description: [
-      'Launched and expanded a mobile app (0→1) and suite of A2A payments, invoicing, payroll, cards, loans, and POS. Managed a multi-product roadmap, balancing SMB needs with business requirements.',
+      'Launched and expanded a mobile app (0→1) and suite of A2A payments, invoicing, payroll, cards (issuing and acquiring), loans, and cash collection. Managed a multi-product roadmap, balancing B2B needs with business requirements.',
     ],
-    tags: ['Payments', 'SMB Focus', 'Product Suite'],
+    tags: ['Payments', 'B2B Focus', 'Product Suite'],
   },
 ];
 
@@ -358,7 +358,7 @@ function App() {
         <section id="press-media" className="section highlights-section press-section" aria-labelledby="press-title">
           <div className="highlights-heading reveal-on-scroll">
             <div>
-              <div className="section-label">01 / PRESS &amp; MEDIA</div>
+              <div className="section-label">PRESS &amp; MEDIA</div>
               <h2 id="press-title">Press &amp; Media <em>Highlights</em></h2>
               <p className="highlights-intro">Features, recognitions, and spotlights</p>
             </div>
@@ -386,7 +386,7 @@ function App() {
         <section id="public-speaking" className="section highlights-section speaking-section" aria-labelledby="speaking-title">
           <div className="highlights-heading reveal-on-scroll">
             <div>
-              <div className="section-label">02 / PUBLIC SPEAKING</div>
+              <div className="section-label">PUBLIC SPEAKING</div>
               <h2 id="speaking-title">Public <em>Speaking</em></h2>
               <p className="highlights-intro">Talks, panels, and product conversations</p>
             </div>
