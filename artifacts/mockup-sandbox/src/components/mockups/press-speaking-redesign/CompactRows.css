@@ -68,11 +68,23 @@
 }
 
 .ps-compact .compact-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 5px;
   color: var(--leaf);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.7px;
+}
+
+.ps-compact .compact-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--orange);
 }
 
 .ps-compact .compact-heading h1,
